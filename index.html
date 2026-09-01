@@ -4,31 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rise Unbothered</title>
+<title>Rise Unbothered — Wear Your Intention</title>
+
+<meta name="description"
+content="Rise Unbothered — intentional pieces for the woman becoming who she was always meant to be.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
 :root {
-  --cream: #f5f1e9;
-  --paper: #fbf9f4;
-  --ink: #292620;
-  --muted: #756f64;
-  --line: #d9d2c5;
-  --sage: #b8c0ad;
-  --rose: #d9b6ad;
-  --sand: #d8c9ad;
-  --lavender: #c4b4c9;
+  --cream: #f5f0e8;
+  --warm-white: #fbf9f5;
+  --black: #1e1d1a;
+  --soft-black: #35332e;
+  --taupe: #857d71;
+  --line: #d8d0c4;
+  --clay: #b88370;
+  --sage: #9da795;
+  --sand: #cdbb9b;
+  --rose: #d5b7ad;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -37,7 +41,7 @@ html {
 
 body {
   background: var(--cream);
-  color: var(--ink);
+  color: var(--black);
   font-family: "DM Sans", sans-serif;
   line-height: 1.5;
 }
@@ -47,26 +51,35 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input {
   font: inherit;
 }
 
-.site-header {
+button {
+  cursor: pointer;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
   height: 76px;
+  padding: 0 5vw;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5vw;
   position: sticky;
   top: 0;
-  background: rgba(245,241,233,.94);
-  backdrop-filter: blur(12px);
-  z-index: 20;
+  z-index: 100;
+  background: rgba(245,240,232,.94);
+  backdrop-filter: blur(15px);
 }
 
 .logo {
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 3px;
   font-weight: 500;
 }
@@ -75,228 +88,246 @@ button {
   font-weight: 700;
 }
 
-.nav {
+nav {
   display: flex;
-  gap: 35px;
+  gap: 34px;
   font-size: 13px;
 }
 
-.nav a {
-  transition: opacity .2s;
+nav a {
+  position: relative;
 }
 
-.nav a:hover {
-  opacity: .5;
+nav a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background: var(--black);
+  transition: .25s;
 }
 
-.bag {
-  border: 1px solid var(--ink);
+nav a:hover:after {
+  width: 100%;
+}
+
+.cart {
+  border: 1px solid var(--black);
   background: transparent;
-  border-radius: 50px;
+  border-radius: 100px;
   padding: 9px 16px;
-  cursor: pointer;
 }
 
-.bag span {
-  background: var(--ink);
+.cart-count {
+  background: var(--black);
   color: white;
   border-radius: 50%;
-  padding: 2px 7px;
+  font-size: 10px;
+  padding: 3px 7px;
   margin-left: 5px;
-  font-size: 11px;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
   min-height: calc(100vh - 76px);
+  padding: 7vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.05fr .95fr;
   align-items: center;
-  padding: 7vw 7vw;
-  gap: 6vw;
+  gap: 7vw;
 }
 
 .eyebrow {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 3px;
-  color: var(--muted);
-  margin-bottom: 25px;
   font-weight: 600;
+  color: var(--taupe);
+  margin-bottom: 25px;
 }
 
 .hero h1 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(60px, 7vw, 110px);
-  line-height: .9;
-  font-weight: 500;
-  letter-spacing: -4px;
+  font-size: clamp(64px, 8vw, 120px);
+  line-height: .88;
+  font-weight: 400;
+  letter-spacing: -5px;
 }
 
 .hero h1 em {
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.hero-text {
-  max-width: 430px;
-  font-size: 18px;
-  color: var(--muted);
-  margin: 35px 0;
+.hero-copy {
+  max-width: 470px;
+  margin: 38px 0;
+  font-size: 17px;
+  color: var(--taupe);
 }
 
-.actions {
+.hero-buttons {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 28px;
 }
 
-.button {
+.primary {
   display: inline-block;
-  border-radius: 50px;
-  padding: 16px 25px;
-  cursor: pointer;
-  border: none;
-}
-
-.button-dark {
-  background: var(--ink);
+  background: var(--black);
   color: white;
+  padding: 15px 24px;
+  border-radius: 100px;
+  font-size: 13px;
+  transition: .25s;
 }
 
-.text-link {
-  border-bottom: 1px solid var(--ink);
+.primary:hover {
+  transform: translateY(-2px);
+}
+
+.secondary {
+  font-size: 13px;
+  border-bottom: 1px solid var(--black);
   padding-bottom: 4px;
 }
 
-.hero-art {
-  height: 600px;
+/* =========================
+   HERO VISUAL
+========================= */
+
+.hero-visual {
+  min-height: 580px;
   position: relative;
-  overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.arch {
+.visual-background {
+  width: 78%;
+  height: 82%;
   position: absolute;
-  width: 72%;
-  height: 78%;
   bottom: 0;
-  border-radius: 300px 300px 0 0;
+  background: #ded6ca;
+  border-radius: 400px 400px 0 0;
 }
 
-.arch-back {
-  background: #ddd4c5;
-  transform: translateX(-10%);
-}
-
-.arch-front {
-  background: #ead5a4;
-  width: 57%;
-  height: 60%;
-  transform: translateX(17%);
-}
-
-.orb {
+.visual-circle {
   position: absolute;
+  width: 290px;
+  height: 290px;
   border-radius: 50%;
+  background: var(--sand);
+  transform: translate(70px,-45px);
 }
 
-.orb1 {
-  width: 95px;
-  height: 95px;
-  background: var(--lavender);
-  right: 19%;
-  top: 23%;
-}
-
-.orb2 {
-  width: 65px;
-  height: 65px;
-  background: var(--rose);
-  left: 18%;
-  bottom: 22%;
-}
-
-.orb3 {
+.visual-circle-small {
+  position: absolute;
   width: 75px;
   height: 75px;
-  background: #c5ad72;
-  right: 28%;
-  bottom: 15%;
+  border-radius: 50%;
+  background: var(--clay);
+  right: 12%;
+  top: 18%;
 }
 
-.hero-card {
-  position: absolute;
-  background: var(--paper);
-  padding: 25px 35px;
+.visual-card {
+  position: relative;
+  z-index: 3;
+  background: var(--warm-white);
+  width: 260px;
+  padding: 45px 30px;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,.08);
-  z-index: 4;
+  box-shadow: 0 25px 60px rgba(0,0,0,.12);
 }
 
-.hero-card small {
+.visual-card span {
   display: block;
-  font-size: 8px;
-  letter-spacing: 3px;
-  margin-bottom: 7px;
+  font-size: 9px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  color: var(--taupe);
 }
 
-.hero-card strong {
-  font-size: 17px;
-  letter-spacing: 3px;
+.visual-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
 }
 
-.marquee {
-  background: var(--ink);
+.visual-card p {
+  margin-top: 18px;
+  font-size: 11px;
+  color: var(--taupe);
+}
+
+/* =========================
+   BRAND STRIP
+========================= */
+
+.brand-strip {
+  background: var(--black);
   color: var(--cream);
-  padding: 18px 5vw;
+  padding: 17px 5vw;
   display: flex;
   justify-content: space-around;
-  font-size: 10px;
+  gap: 20px;
+  font-size: 9px;
   letter-spacing: 3px;
 }
 
+/* =========================
+   INTENTIONS
+========================= */
+
 .section {
-  padding: 110px 7vw;
+  padding: 120px 7vw;
 }
 
-.section-header {
+.section-heading {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 40px;
+  gap: 50px;
   margin-bottom: 55px;
 }
 
-.section h2 {
+.section-heading h2 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(45px, 5vw, 75px);
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: -2px;
+  font-weight: 400;
+  font-size: clamp(48px,6vw,82px);
+  line-height: .95;
+  letter-spacing: -3px;
 }
 
-.section-header > p {
-  max-width: 350px;
-  color: var(--muted);
+.section-heading p {
+  max-width: 380px;
+  color: var(--taupe);
+  font-size: 15px;
 }
 
 .intentions {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  gap: 15px;
+  gap: 14px;
 }
 
 .intention {
-  min-height: 370px;
+  min-height: 390px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform .3s;
+  transition: .3s;
 }
 
 .intention:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
 }
 
 .intention:nth-child(1) {
@@ -312,246 +343,413 @@ button {
 }
 
 .intention:nth-child(4) {
-  background: var(--lavender);
+  background: #c4c4b5;
 }
 
 .intention-number {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 2px;
 }
 
 .intention h3 {
   font-family: "Playfair Display", serif;
   font-size: 43px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .intention p {
-  color: #5e594f;
+  color: #565249;
+  font-size: 13px;
+  max-width: 220px;
 }
 
-.intention b {
-  font-size: 12px;
-  font-weight: 500;
+.intention a {
+  font-size: 11px;
   border-bottom: 1px solid;
   width: max-content;
+  padding-bottom: 3px;
+}
+
+/* =========================
+   SHOP
+========================= */
+
+.shop {
+  background: var(--warm-white);
 }
 
 .products {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 25px;
+  gap: 28px;
+}
+
+.product {
+  position: relative;
 }
 
 .product-image {
-  height: 430px;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.product-image.one {
-  background: #c5cbb9;
+.product:nth-child(1) .product-image {
+  background: #c4c9ba;
 }
 
-.product-image.two {
-  background: #dbc0b7;
+.product:nth-child(2) .product-image {
+  background: #dcc4bc;
 }
 
-.product-image.three {
-  background: #dfcfaa;
+.product:nth-child(3) .product-image {
+  background: #ded0ae;
 }
 
-.product-image .stone {
-  width: 115px;
-  height: 145px;
-  background: #756c61;
-  border-radius: 50% 45% 55% 45%;
-  box-shadow: 25px 30px 0 rgba(255,255,255,.15);
-  transform: rotate(15deg);
+/* Product stones */
+
+.stone {
+  width: 130px;
+  height: 165px;
+  border-radius: 55% 45% 50% 50%;
+  transform: rotate(14deg);
+  box-shadow:
+    25px 30px 0 rgba(255,255,255,.18),
+    -15px -10px 20px rgba(255,255,255,.1);
 }
 
-.product-image.two .stone {
-  background: #a77c74;
+.product:nth-child(1) .stone {
+  background: #716d65;
 }
 
-.product-image.three .stone {
-  background: #a89055;
+.product:nth-child(2) .stone {
+  background: #a47770;
+}
+
+.product:nth-child(3) .stone {
+  background: #a18b56;
+}
+
+.product-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(251,249,245,.85);
+  padding: 7px 10px;
+  font-size: 9px;
+  letter-spacing: 1px;
 }
 
 .product-info {
   display: flex;
   justify-content: space-between;
-  padding: 18px 0 10px;
+  padding: 18px 0 8px;
 }
 
 .product-info h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .product-info p {
+  color: var(--taupe);
   font-size: 12px;
-  color: var(--muted);
   margin-top: 4px;
+}
+
+.price {
+  font-size: 14px;
 }
 
 .add {
   width: 100%;
-  padding: 13px;
-  border: 1px solid var(--ink);
   background: transparent;
-  cursor: pointer;
+  border: 1px solid var(--black);
+  padding: 12px;
+  font-size: 12px;
   transition: .2s;
 }
 
 .add:hover {
-  background: var(--ink);
+  background: var(--black);
   color: white;
 }
 
-.ritual {
-  background: #dfd7c8;
-  padding: 100px 7vw;
+/* =========================
+   BRAND STORY
+========================= */
+
+.story {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 8vw;
+  min-height: 650px;
 }
 
-.ritual-art {
-  height: 500px;
+.story-visual {
+  background: #d4cec1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+}
+
+.story-ring {
+  width: 380px;
+  height: 380px;
+  border: 1px solid #9e988d;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.ritual-circle {
-  width: 390px;
-  height: 390px;
+.story-ring-inner {
+  width: 260px;
+  height: 260px;
+  background: #b8ad9b;
   border-radius: 50%;
-  border: 1px solid #a9a092;
 }
 
-.ritual-circle:after {
-  content: "";
+.story-word {
   position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: #c2b6a1;
-  transform: translate(70px,70px);
-}
-
-.ritual-word {
-  position: absolute;
-  z-index: 2;
   font-family: "Playfair Display", serif;
-  font-size: 35px;
-  line-height: 1.3;
+  font-size: 42px;
+  text-align: center;
+  z-index: 2;
+}
+
+.story-copy {
+  padding: 100px 9vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.story-copy h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(48px,6vw,78px);
+  line-height: .95;
+  font-weight: 400;
+  letter-spacing: -3px;
+}
+
+.story-copy p {
+  color: var(--taupe);
+  max-width: 470px;
+  margin: 30px 0;
+  font-size: 16px;
+}
+
+/* =========================
+   MANIFESTO
+========================= */
+
+.manifesto {
+  padding: 130px 7vw;
   text-align: center;
 }
 
-.ritual h2 {
+.manifesto h2 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(42px,5vw,70px);
-  font-weight: 500;
-  line-height: 1;
+  font-size: clamp(45px,7vw,90px);
+  line-height: .95;
+  font-weight: 400;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.ritual h2 em {
-  font-weight: 500;
+.manifesto h2 em {
+  font-weight: 400;
 }
 
-.ritual-copy > p:not(.eyebrow) {
-  color: var(--muted);
+.manifesto p {
+  margin: 30px auto 0;
   max-width: 500px;
-  margin: 30px 0;
-  font-size: 17px;
+  color: var(--taupe);
 }
+
+/* =========================
+   NEWSLETTER
+========================= */
 
 .newsletter {
-  padding: 120px 7vw;
+  background: #ded6c9;
+  padding: 100px 7vw;
   text-align: center;
 }
 
 .newsletter h2 {
   font-family: "Playfair Display", serif;
-  font-size: clamp(45px,6vw,80px);
-  font-weight: 500;
+  font-weight: 400;
+  font-size: clamp(45px,6vw,75px);
 }
 
-.newsletter > p:not(.eyebrow) {
-  color: var(--muted);
-  max-width: 500px;
-  margin: 20px auto 35px;
+.newsletter p {
+  color: var(--taupe);
+  max-width: 450px;
+  margin: 18px auto 35px;
 }
 
-.newsletter form {
-  display: flex;
-  max-width: 500px;
+.newsletter-form {
+  max-width: 480px;
   margin: auto;
-  border-bottom: 1px solid var(--ink);
+  display: flex;
+  border-bottom: 1px solid var(--black);
 }
 
-.newsletter input {
+.newsletter-form input {
   flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 0;
+}
+
+.newsletter-form button {
   border: none;
   background: transparent;
   padding: 15px 0;
-  outline: none;
+  font-size: 12px;
+  font-weight: 600;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer {
-  border-top: 1px solid var(--line);
-  padding: 45px 7vw;
+  background: var(--black);
+  color: var(--cream);
+  padding: 55px 7vw;
+}
+
+.footer-top {
   display: flex;
   justify-content: space-between;
-  color: var(--muted);
+  gap: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #4b4944;
+}
+
+.footer-logo {
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.footer-text {
+  max-width: 320px;
+  color: #aaa59c;
   font-size: 12px;
 }
 
+.footer-links {
+  display: flex;
+  gap: 45px;
+}
+
+.footer-links a {
+  color: #aaa59c;
+  font-size: 12px;
+}
+
+.footer-bottom {
+  padding-top: 25px;
+  color: #77736c;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* =========================
+   CART MESSAGE
+========================= */
+
+.cart-message {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--black);
+  color: white;
+  padding: 13px 20px;
+  border-radius: 100px;
+  font-size: 12px;
+  opacity: 0;
+  transition: .3s;
+  z-index: 200;
+}
+
+.cart-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width: 800px) {
 
-  .site-header {
+  header {
     padding: 0 20px;
   }
 
-  .nav {
+  nav {
     display: none;
   }
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 65px 25px;
+    padding: 70px 25px 40px;
+    gap: 40px;
   }
 
   .hero h1 {
-    font-size: 68px;
+    font-size: 70px;
+    letter-spacing: -4px;
   }
 
-  .hero-art {
-    height: 420px;
+  .hero-copy {
+    font-size: 15px;
   }
 
-  .marquee {
-    gap: 20px;
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .visual-background {
+    height: 85%;
+    width: 85%;
+  }
+
+  .visual-circle {
+    width: 210px;
+    height: 210px;
+  }
+
+  .visual-card {
+    width: 220px;
+  }
+
+  .brand-strip {
     overflow: hidden;
     white-space: nowrap;
+    justify-content: flex-start;
   }
 
   .section {
-    padding: 75px 25px;
+    padding: 80px 25px;
   }
 
-  .section-header {
+  .section-heading {
     display: block;
+    margin-bottom: 40px;
   }
 
-  .section-header > p {
+  .section-heading p {
     margin-top: 20px;
   }
 
@@ -560,11 +758,12 @@ footer {
   }
 
   .intention {
-    min-height: 280px;
+    min-height: 290px;
+    padding: 20px;
   }
 
   .intention h3 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
   .products {
@@ -575,87 +774,117 @@ footer {
     height: 390px;
   }
 
-  .ritual {
+  .story {
     grid-template-columns: 1fr;
+  }
+
+  .story-visual {
+    min-height: 420px;
+  }
+
+  .story-ring {
+    width: 290px;
+    height: 290px;
+  }
+
+  .story-ring-inner {
+    width: 195px;
+    height: 195px;
+  }
+
+  .story-word {
+    font-size: 34px;
+  }
+
+  .story-copy {
     padding: 75px 25px;
   }
 
-  .ritual-art {
-    height: 350px;
+  .manifesto {
+    padding: 90px 25px;
   }
 
-  .ritual-circle {
-    width: 280px;
-    height: 280px;
+  .newsletter {
+    padding: 80px 25px;
   }
 
-  .ritual-circle:after {
-    width: 180px;
-    height: 180px;
-    transform: translate(50px,50px);
-  }
-
-  footer {
+  .footer-top {
     display: block;
   }
 
-  footer p {
-    margin-top: 12px;
+  .footer-links {
+    margin-top: 35px;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom {
+    display: block;
+  }
+
+  .footer-bottom span {
+    display: block;
+    margin-top: 10px;
   }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<header class="site-header">
+<!-- HEADER -->
+
+<header>
 
 <a href="#" class="logo">
 <strong>RISE</strong> UNBOTHERED
 </a>
 
-<nav class="nav">
+<nav>
 <a href="#intentions">Intentions</a>
 <a href="#shop">Shop</a>
+<a href="#story">Our Story</a>
 <a href="#ritual">The Ritual</a>
 </nav>
 
-<button class="bag">
-Bag <span id="bagCount">0</span>
+<button class="cart">
+Bag <span class="cart-count" id="cartCount">0</span>
 </button>
 
 </header>
 
 
-<main>
+<!-- HERO -->
 
 <section class="hero">
 
 <div>
 
 <p class="eyebrow">
-CRYSTALS · CHARMS · INTENTION
+RISE UNBOTHERED
 </p>
 
 <h1>
-Choose<br>
+Wear<br>
 your <em>intention.</em>
 </h1>
 
-<p class="hero-text">
-Small reminders for the life you're calling in.
-Wear what you want to feel.
+<p class="hero-copy">
+Pieces created for the version of you
+you're becoming — not the version
+you've outgrown.
 </p>
 
-<div class="actions">
+<div class="hero-buttons">
 
-<a href="#shop" class="button button-dark">
+<a href="#shop" class="primary">
 Shop the collection
 </a>
 
-<a href="#intentions" class="text-link">
-Explore intentions ↓
+<a href="#intentions" class="secondary">
+Find your intention ↓
 </a>
 
 </div>
@@ -663,20 +892,26 @@ Explore intentions ↓
 </div>
 
 
-<div class="hero-art">
+<div class="hero-visual">
 
-<div class="arch arch-back"></div>
-<div class="arch arch-front"></div>
+<div class="visual-background"></div>
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
+<div class="visual-circle"></div>
 
-<div class="hero-card">
+<div class="visual-circle-small"></div>
 
-<small>RISE</small>
+<div class="visual-card">
 
-<strong>UNBOTHERED</strong>
+<span>RISE UNBOTHERED</span>
+
+<h2>
+Choose<br>
+your feeling.
+</h2>
+
+<p>
+A reminder you can carry with you.
+</p>
 
 </div>
 
@@ -685,37 +920,34 @@ Explore intentions ↓
 </section>
 
 
-<div class="marquee">
+<!-- BRAND STRIP -->
 
-<span>FOR THE LIFE YOU'RE CALLING IN</span>
-<i>✦</i>
-<span>WEAR YOUR INTENTION</span>
-<i>✦</i>
-<span>RISE UNBOTHERED</span>
+<div class="brand-strip">
+
+<span>INTENTION</span>
+<span>ENERGY</span>
+<span>SELF-TRUST</span>
+<span>ABUNDANCE</span>
+<span>PROTECTION</span>
 
 </div>
 
+
+<!-- INTENTIONS -->
 
 <section class="section" id="intentions">
 
-<div class="section-header">
-
-<div>
-
-<p class="eyebrow">
-START WITH HOW YOU WANT TO FEEL
-</p>
+<div class="section-heading">
 
 <h2>
-Your intention,<br>
-<em>your piece.</em>
+What are<br>
+you calling in?
 </h2>
 
-</div>
-
 <p>
-Choose a feeling first.
-Let the piece become your daily reminder.
+Your piece begins with an intention.
+Choose the energy you want to keep close,
+then let the object become your reminder.
 </p>
 
 </div>
@@ -723,97 +955,89 @@ Let the piece become your daily reminder.
 
 <div class="intentions">
 
-<a href="#shop" class="intention">
+<div class="intention">
 
 <span class="intention-number">01</span>
 
-<div>
+<h3>Abundance</h3>
 
-<h3>Grounded</h3>
+<p>
+For the woman creating more —
+more freedom, more money, more life.
+</p>
 
-<p>Come back to yourself.</p>
+<a href="#shop">Explore →</a>
 
 </div>
 
-<b>Explore →</b>
 
-</a>
-
-
-<a href="#shop" class="intention">
+<div class="intention">
 
 <span class="intention-number">02</span>
 
-<div>
+<h3>Love</h3>
 
-<h3>Loved</h3>
+<p>
+Softness without losing yourself.
+Love that begins with you.
+</p>
 
-<p>Hold softness without shrinking.</p>
+<a href="#shop">Explore →</a>
 
 </div>
 
-<b>Explore →</b>
 
-</a>
-
-
-<a href="#shop" class="intention">
+<div class="intention">
 
 <span class="intention-number">03</span>
 
-<div>
+<h3>Power</h3>
 
-<h3>Abundant</h3>
+<p>
+For decisions, boundaries and becoming
+impossible to shake.
+</p>
 
-<p>Make space for more.</p>
+<a href="#shop">Explore →</a>
 
 </div>
 
-<b>Explore →</b>
 
-</a>
-
-
-<a href="#shop" class="intention">
+<div class="intention">
 
 <span class="intention-number">04</span>
 
-<div>
+<h3>Peace</h3>
 
-<h3>Protected</h3>
+<p>
+A quiet reminder to return to yourself
+when the world gets loud.
+</p>
 
-<p>Keep your energy yours.</p>
+<a href="#shop">Explore →</a>
 
 </div>
-
-<b>Explore →</b>
-
-</a>
 
 </div>
 
 </section>
 
 
-<section class="section" id="shop">
+<!-- SHOP -->
 
-<div class="section-header">
+<section class="section shop" id="shop">
 
-<div>
-
-<p class="eyebrow">
-THE FIRST DROP
-</p>
+<div class="section-heading">
 
 <h2>
-Pieces with <em>purpose.</em>
+The collection.
 </h2>
 
-</div>
-
-<a href="#shop" class="text-link">
-View all pieces →
-</a>
+<p>
+Small intentional pieces.
+Made to be worn, carried, gifted
+and remembered.
+</p>
 
 </div>
 
@@ -821,126 +1045,180 @@ View all pieces →
 <div class="products">
 
 
-<article class="product">
+<!-- PRODUCT 1 -->
 
-<div class="product-image one">
+<div class="product">
+
+<div class="product-image">
+
+<span class="product-label">
+BESTSELLER
+</span>
+
 <div class="stone"></div>
+
 </div>
 
 <div class="product-info">
 
 <div>
 
-<h3>Grounded Charm</h3>
+<h3>
+Abundance Stone
+</h3>
 
-<p>Quiet · steady · rooted</p>
+<p>
+For money, growth & expansion
+</p>
 
 </div>
 
-<strong>₹699</strong>
+<div class="price">
+₹899
+</div>
 
 </div>
 
-<button class="add">
+<button class="add" onclick="addToBag('Abundance Stone')">
 Add to bag
 </button>
 
-</article>
+</div>
 
 
-<article class="product">
+<!-- PRODUCT 2 -->
 
-<div class="product-image two">
+<div class="product">
+
+<div class="product-image">
+
+<span class="product-label">
+LOVE
+</span>
+
 <div class="stone"></div>
+
 </div>
 
 <div class="product-info">
 
 <div>
 
-<h3>Loved Charm</h3>
+<h3>
+Love Charm
+</h3>
 
-<p>Soft · open · worthy</p>
+<p>
+For softness & self-love
+</p>
 
 </div>
 
-<strong>₹699</strong>
+<div class="price">
+₹799
+</div>
 
 </div>
 
-<button class="add">
+<button class="add" onclick="addToBag('Love Charm')">
 Add to bag
 </button>
 
-</article>
+</div>
 
 
-<article class="product">
+<!-- PRODUCT 3 -->
 
-<div class="product-image three">
+<div class="product">
+
+<div class="product-image">
+
+<span class="product-label">
+POWER
+</span>
+
 <div class="stone"></div>
+
 </div>
 
 <div class="product-info">
 
 <div>
 
-<h3>Abundance Charm</h3>
+<h3>
+Unbothered Talisman
+</h3>
 
-<p>Bright · expansive · bold</p>
+<p>
+For protection & confidence
+</p>
 
 </div>
 
-<strong>₹749</strong>
+<div class="price">
+₹999
+</div>
 
 </div>
 
-<button class="add">
+<button class="add" onclick="addToBag('Unbothered Talisman')">
 Add to bag
 </button>
 
-</article>
+</div>
+
 
 </div>
 
 </section>
 
 
-<section class="ritual" id="ritual">
+<!-- STORY -->
 
-<div class="ritual-art">
+<section class="story" id="story">
 
-<div class="ritual-circle"></div>
+<div class="story-visual">
 
-<div class="ritual-word">
-PAUSE<br>
-CHOOSE<br>
-WEAR<br>
-RISE
+<div class="story-ring">
+
+<div class="story-ring-inner"></div>
+
+</div>
+
+<div class="story-word">
+Rise<br>
+Unbothered.
 </div>
 
 </div>
 
 
-<div class="ritual-copy">
+<div class="story-copy">
 
 <p class="eyebrow">
-THE RITUAL
+WHY WE EXIST
 </p>
 
 <h2>
-It isn't just what you wear.<br>
-<em>It's what you remember.</em>
+You don't need
+permission to
+become her.
 </h2>
 
 <p>
-Before you put your piece on, take one breath.
-Name the version of yourself you're choosing today.
-Then carry that intention with you.
+Rise Unbothered was created around one simple
+idea: the things we carry can become reminders
+of who we're choosing to be.
 </p>
 
-<a href="#shop" class="button button-dark">
-Find your piece
+<p>
+Not perfection.
+Not pretending.
+Just intention — worn close.
+</p>
+
+<a href="#ritual" class="secondary">
+Discover the ritual →
 </a>
 
 </div>
@@ -948,22 +1226,50 @@ Find your piece
 </section>
 
 
-<section class="newsletter">
+<!-- MANIFESTO -->
+
+<section class="manifesto" id="ritual">
 
 <p class="eyebrow">
-A LITTLE NOTE FROM US
+THE RISE UNBOTHERED RITUAL
 </p>
 
 <h2>
-Come back to yourself.
+Choose what you want to feel.
+<br>
+<strong>Carry the reminder.</strong>
+<br>
+<em>Become it.</em>
 </h2>
 
 <p>
-New drops, rituals and quiet reminders —
-only when there's something worth saying.
+Set the intention. Wear the piece.
+Move through your day as if the version
+of you you're calling in is already here.
 </p>
 
-<form onsubmit="subscribe(event)">
+</section>
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+<p class="eyebrow">
+THE UNBOTHERED LIST
+</p>
+
+<h2>
+Stay close.
+</h2>
+
+<p>
+New drops, intentional rituals, early access
+and reminders to keep choosing yourself.
+</p>
+
+<form class="newsletter-form"
+onsubmit="subscribe(event)">
 
 <input
 type="email"
@@ -971,64 +1277,106 @@ placeholder="Your email address"
 required
 >
 
-<button class="button button-dark">
-Join us
+<button type="submit">
+JOIN →
 </button>
 
 </form>
 
 </section>
 
-</main>
 
+<!-- FOOTER -->
 
 <footer>
 
-<a href="#" class="logo">
+<div class="footer-top">
+
+<div>
+
+<div class="footer-logo">
 <strong>RISE</strong> UNBOTHERED
-</a>
+</div>
 
-<p>
-For the life you're calling in.
+<p class="footer-text">
+For the woman becoming.
+For the life she's calling in.
 </p>
 
-<p>
+</div>
+
+
+<div class="footer-links">
+
+<a href="#shop">Shop</a>
+<a href="#intentions">Intentions</a>
+<a href="#story">Our Story</a>
+<a href="#">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
 © 2026 Rise Unbothered
-</p>
+</span>
+
+<span>
+Wear your intention.
+</span>
+
+</div>
 
 </footer>
 
 
+<!-- CART MESSAGE -->
+
+<div class="cart-message" id="cartMessage">
+Added to your bag.
+</div>
+
+
 <script>
 
-let bag = 0;
+let cartCount = 0;
 
-document.querySelectorAll(".add").forEach(button => {
+function addToBag(productName) {
 
-button.addEventListener("click", () => {
+cartCount++;
 
-bag++;
+document.getElementById("cartCount").innerText = cartCount;
 
-document.getElementById("bagCount").textContent = bag;
+const message =
+document.getElementById("cartMessage");
 
-button.textContent = "Added ✓";
+message.innerText =
+productName + " added to your bag.";
 
-setTimeout(() => {
-button.textContent = "Add to bag";
-}, 1200);
+message.classList.add("show");
 
-});
+setTimeout(function() {
 
-});
+message.classList.remove("show");
+
+}, 2200);
+
+}
 
 
 function subscribe(event) {
 
 event.preventDefault();
 
-const button = event.target.querySelector("button");
+const form = event.target;
 
-button.textContent = "You're in ✓";
+const email = form.querySelector("input").value;
+
+form.innerHTML =
+"<p style='padding:15px 0;font-size:13px;'>You're on the list. ✦</p>";
 
 }
 
